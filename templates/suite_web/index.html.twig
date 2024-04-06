@@ -1,6 +1,10 @@
 {% extends 'base2.html.twig' %}
 {% block body %}
 
+{# templates/suite_web/index.html.twig #}
+
+{# Ajoutez ce code où vous souhaitez afficher le lien #}
+
 
 
 <!-- ======= Header ======= --><header id="header" class="fixed-top d-flex align-items-center header-transparent">
@@ -8,12 +12,14 @@
 
     <div class="logo me-auto">
       <h1><a href="index.html">GuideUp</a></h1>
+   
+      
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assetsClient/img/logo.png" alt="" class="img-fluid"></a>-->
     </div>
 
     <nav id="navbar" class="navbar order-last order-lg-0">
-      <ul>
+      <ul  style="color: black;">
         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
         <li><a class="nav-link scrollto" href="#about">About</a></li>
 
@@ -31,6 +37,8 @@
         </ul>
       </li>
       {% endif %}
+
+      
     </nav><!-- .navbar -->
 
     
@@ -54,8 +62,14 @@
               <h2 class="animate__animated animate__fadeInDown"><span>Guide</span> Up</h2>
               <p class="animate__animated animate__fadeInUp">Your gateway to personalized mentorship. Connect with experienced mentors and unlock your full potential today.</p>
               <div>
+    
                 <a href="{{ path('app_login') }}" class="btn-menu animate__animated animate__fadeInUp scrollto">Sign  in</a>
                 <a href="{{ path('app_register') }}" class="btn-book animate__animated animate__fadeInUp scrollto">Sign Up</a>
+              </div>
+              <br>
+              <div>
+                <a href="http://localhost:3000" class="btn-menu animate__animated animate__fadeInUp scrollto">Group Chat</a>
+
               </div>
             </div>
           </div>
@@ -86,7 +100,7 @@
               Our dedicated team is committed to providing a supportive environment where both mentors and mentees can thrive.
             </p>
             <ul>
-              <li><i class="bx bx-check-double"></i> Connect with experienced mentors who can offer valuable insights and guidance.</li>
+              <li><i class="bx bx-check-double"></i> Connect with experienced mentors who can formation valuable insights and guidance.</li>
               <li><i class="bx bx-check-double"></i> Access a wide range of resources and tools to support your personal and professional development.</li>
               <li><i class="bx bx-check-double"></i> Join a community of like-minded individuals who are passionate about learning and growth.</li>
             </ul>
@@ -133,8 +147,7 @@
   </div>
 </section><!-- End Why Us Section -->
 
-
-<!-- ======= Offers Section ======= -->
+<!-- ======= formations Section ======= -->
 <section id="menu" class="menu">
   <div class="container">
 
@@ -146,48 +159,31 @@
       <div class="col-lg-12 d-flex justify-content-center">
         <ul id="menu-flters">
           <li data-filter="*" class="filter-active">Show All</li>
-          <li data-filter=".filter-discounts">Discounts</li>
-          <li data-filter=".filter-bundles">Bundles</li>
-          <li data-filter=".filter-promotions">Promotions</li>
+          {% for formation in formation %}
+            <li data-filter=".filter-{{ formation.type }}">{{ formation.type }}</li>
+          {% endfor %}
         </ul>
       </div>
     </div>
 
     <div class="row menu-container">
 
-      <div class="col-lg-6 menu-item filter-discounts">
-        <div class="menu-content">
-          <a href="#">50% Off Membership</a><span>$29.99/mo</span>
+      {% for formation in formation %}
+        <div class="col-lg-6 menu-item filter-{{ formation.type }}">
+          <div class="menu-content">
+            <a href="#">{{ formation.name }}</a><span>{{ formation.prix }}</span>
+          </div>
+          <div class="menu-ingredients">
+            {{ formation.subscrib }}
+          </div>
         </div>
-        <div class="menu-ingredients">
-          Get 50% off on your first month's membership fee. Limited time offer. Sign up now!
-        </div>
-      </div>
-
-      <div class="col-lg-6 menu-item filter-bundles">
-        <div class="menu-content">
-          <a href="#">Starter Pack</a><span>$49.99</span>
-        </div>
-        <div class="menu-ingredients">
-          Get our exclusive Starter Pack including access to 3 mentoring sessions and a personalized development plan.
-        </div>
-      </div>
-
-      <div class="col-lg-6 menu-item filter-promotions">
-        <div class="menu-content">
-          <a href="#">Refer a Friend</a><span>Earn $10 Credit</span>
-        </div>
-        <div class="menu-ingredients">
-          Refer a friend to our platform and earn a $10 credit towards your next mentoring session.
-        </div>
-      </div>
-
-      <!-- Additional offers can be added here -->
+      {% endfor %}
 
     </div>
 
   </div>
-</section><!-- End Offers Section -->
+</section><!-- End formations Section -->
+
 
   <!-- ======= Specials Section ======= -->
   <section id="specials" class="specials">
@@ -298,7 +294,7 @@
  
  
 <!-- ======= Mentors Section ======= -->
-<section id="chefs" class="chefs">
+<section id="chefs" class="chefs" >
   <div class="container">
 
     <div class="section-title">

@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use App\Entity\Event;
 use App\Entity\Activty;
 use App\Entity\User;
+use App\Entity\Formation;
 use App\Form\ContactFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,12 +50,15 @@ class SuiteWebController extends AbstractController
         $events = $entityManager->getRepository(Event::class)->findAll();
         $activties = $entityManager->getRepository(Activty::class)->findAll();
         $users = $entityManager->getRepository(User::class)->findAll();
+        $formation = $entityManager->getRepository(Formation::class)->findAll();
         return $this->render('suite_web/index.html.twig', [
             'form' => $form->createView(),
             'events' => $events,
             'activties' => $activties,
             'users' => $users,
-            'visitCount' => $visitCount, // Envoyer le compteur de visites à la vue
+            'visitCount' => $visitCount,
+            'formation' => $formation,
+             // Envoyer le compteur de visites à la vue
         ]);
     }
 }
