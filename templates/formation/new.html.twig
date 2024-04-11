@@ -1,11 +1,11 @@
 
-{% extends 'base.html.twig' %}
+{% extends 'baseMentor.html.twig' %}
 
 {% block title %}New Formation{% endblock %}
 
 {% block body %}
 
-    <div class="bg-light rounded h-100 p-4">
+   
         
         <h6 class="mb-4">créer Formation</h6>
         {{ form_start(form) }}
@@ -29,6 +29,6 @@
         <button type="submit" class="btn btn-primary">Soumettre</button>
         {{ form_end(form) }}
    
-</div>
+
 
 {% endblock %}

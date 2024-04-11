@@ -4,9 +4,10 @@
 
 {% block body %}
 <div class="col-12" style="text-align: center;">
-    <div class="card mb-4">
+  
     <div class="card-header pb-0">
     <h6>Events</h6>
+    <br>
     </div>
     <div class="card-body px-0 pt-0 pb-2">
     <div class="table-responsive p-0">
@@ -36,6 +37,7 @@
              <td>
                 <a class="btn btn-sm btn-primary" href="{{ path('app_event_show', {'id': event.id}) }}">show</a>
                 <a class="btn btn-sm btn-warning" href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
+                
             </td>
         </tr>
         {% endfor %}
@@ -47,7 +49,7 @@
 </div>
     </div>
     </div>
-    </div>
+   
 
 
 {% endblock %}

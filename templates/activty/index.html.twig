@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="col-12" style="text-align: center;">
-    <div class="card mb-4">
+    
     <div class="card-header pb-0">
     <h6>Activity</h6>
     </div>
@@ -28,7 +28,8 @@
                 <td>{{ activty.name }}</td>
                 <td>{{ activty.subject }}</td>
                 <td>{{ activty.text }}</td>
-                <td>{{ activty.imageFileName }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ activty.imageFileName) }}" style="width: 60px; height: auto;"> </div>
+
                 <td>
                     <a class="btn btn-sm btn-primary" href="{{ path('app_activty_show', {'id': activty.id}) }}">show</a>
                     <a class="btn btn-sm btn-warning" href="{{ path('app_activty_edit', {'id': activty.id}) }}">edit</a>
@@ -47,6 +48,6 @@
 </div>
 </div>
     </div>
-    </div>
+    
     </div>
 {% endblock %}

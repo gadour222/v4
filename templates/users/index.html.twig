@@ -4,9 +4,10 @@
 
 {% block body %}
 <div class="col-12" style="text-align: center;">
-    <div class="card mb-4">
+    
     <div class="card-header pb-0">
     <h6>Users</h6>
+    <br>
     </div>
     <div class="card-body px-0 pt-0 pb-2">
     <div class="table-responsive p-0">
@@ -25,19 +26,16 @@
             {% for role in user.roles %}
             {% if role in ['MENTOR', 'MENTEE'] %}
                 <tr>
-                    <td>{{ user.firstName }}</td>
-                    <td>{{ user.lastName }}</td>
-                    <td>{{ user.city }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                       
-                           
-                                    {{ role }}
-                             
-                     
+                    <td class="text-white">{{ user.firstName }}</td>
+                    <td class="text-white">{{ user.lastName }}</td>
+                    <td class="text-white">{{ user.city }}</td>
+                    <td class="text-white">{{ user.email }}</td>
+                    <td class="text-white">
+                        {{ role }}
                     </td>
-                    <div style="text-align: center;">
-                  <td>  {{ include('users/_delete_form.html.twig') }}</td>
+                    <td class="text-white">
+                        {{ include('users/_delete_form.html.twig') }}
+                    </td>
                 </tr>
                 {% endif %}
             {% endfor %}
@@ -48,5 +46,5 @@
 </div>
     </div>
     </div>
-    </div>
+    
 {% endblock %}
