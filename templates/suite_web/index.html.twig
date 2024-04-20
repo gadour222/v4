@@ -257,6 +257,9 @@
               <div class="section-title">
                 <h2>From <span>{{ event.fromDate|date('Y-m-d H:i:s') }}</span> to <span>{{ event.toDate|date('Y-m-d H:i:s') }}</span></h2>
               </div>
+              <div style="text-align: center;">
+        <a class="btn btn-sm btn-primary" href="{{ path('app_cart', {'id': event.id}) }}">Create new</a>
+                </div>
             </div>
           </div>
         </div>
